@@ -1,32 +1,33 @@
 import React, { useState } from 'react';
 import '../styles/Projects.scss';
+import happyHour from '../assets/Happy-hour.png';
+
 
 const proyectos = [
   {
     id: 1,
     nombre: 'Vitality',
-    stack: 'ReactJS | Tailwindcss | Firebase | ',
-    imagen: '/img/mti.jpg',
+    stack: 'ReactJS | Tailwindcss | Firebase | API integration',
+    imagen: happyHour,
   },
   {
     id: 2,
     nombre: 'ConcretoCR',
     stack: 'html | css | Javascript | Firebase',
-    imagen: '/img/epikcart.jpg',
+    imagen: happyHour,
   },
   {
     id: 3,
     nombre: 'Happy-Hour',
-    stack: 'ReactJS | css |Firebase',
-    imagen: '/img/resume.jpg',
+    stack: 'ReactJS | css | Firebase',
+    imagen: happyHour,
   },
   {
     id: 4,
     nombre: 'Adobloq',
     stack: 'ReactJS | Javascript | Tailwindcss | Firebase',
-    imagen: '/img/resume.jpg',
+    imagen: happyHour,
   },
-  // Podés seguir agregando más proyectos aquí
 ];
 
 const Projects = () => {
@@ -35,7 +36,7 @@ const Projects = () => {
   return (
     <section className="proyectos-showcase">
       <div className="proyectos-showcase__imagen">
-        <img src={proyectoActivo.imagen} alt={proyectoActivo.nombre} />
+        <img key={proyectoActivo.id} src={proyectoActivo.imagen} alt={proyectoActivo.nombre} />
       </div>
 
       <div className="proyectos-showcase__lista">
