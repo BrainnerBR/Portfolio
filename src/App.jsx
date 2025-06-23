@@ -1,30 +1,32 @@
-import { useEffect } from 'react';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
-import Lenis from 'lenis'
-
+import ScrollBar from './components/anim/ScrollBar';
+import CustomCursor from './components/anim/CustomCursor';
+import SkillsStack from './components/SkillsStack';
+import Contact from './components/Contact';
+import ProjectDetail from './components/ProjectDetail';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (x) => 1 - Math.pow(1 - x, 3),
-      smooth: true,
-    });
+  return (
+    <Router>
+      <ScrollBar />
+      <CustomCursor />
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  }, [])
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Hero />
+            <Projects />
+            <SkillsStack />
+            <Contact />
+          </>
+        } />
+        <Route path="/proyecto/:id" element={<ProjectDetail />} />
 
-return (
-  <div>
-    <Hero/>
-    <Projects/>
-  </div>
+      </Routes>
+    </Router>
   );
 }
 
-export default App
+export default App;

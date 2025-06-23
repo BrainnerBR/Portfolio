@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import '../styles/Projects.scss';
+import vitality from '../assets/vitality.png'
+import concretocr from '../assets/concretocr.png'
 import happyHour from '../assets/Happy-hour.png';
+import adobloq from '../assets/adobloq.png'
+import { useNavigate } from 'react-router-dom';
+
 
 
 const proyectos = [
@@ -8,13 +13,13 @@ const proyectos = [
     id: 1,
     nombre: 'Vitality',
     stack: 'ReactJS | Tailwindcss | Firebase | API integration',
-    imagen: happyHour,
+    imagen: vitality,
   },
   {
     id: 2,
     nombre: 'ConcretoCR',
     stack: 'html | css | Javascript | Firebase',
-    imagen: happyHour,
+    imagen: concretocr,
   },
   {
     id: 3,
@@ -26,11 +31,12 @@ const proyectos = [
     id: 4,
     nombre: 'Adobloq',
     stack: 'ReactJS | Javascript | Tailwindcss | Firebase',
-    imagen: happyHour,
+    imagen: adobloq,
   },
 ];
 
 const Projects = () => {
+  const navigate = useNavigate();
   const [proyectoActivo, setProyectoActivo] = useState(proyectos[0]);
 
   return (
@@ -46,7 +52,8 @@ const Projects = () => {
             <li
               key={proyecto.id}
               onMouseEnter={() => setProyectoActivo(proyecto)}
-              className={proyectoActivo.id === proyecto.id ? 'activo' : ''}
+              onClick={() => navigate(`/proyecto/${proyecto.id}`)}
+              className={`hoverable ${proyectoActivo.id === proyecto.id ? 'activo' : ''}`}
             >
               <span className="numero">{String(index + 1).padStart(2, '0')}.</span>{' '}
               <span className="nombre">{proyecto.nombre}</span>

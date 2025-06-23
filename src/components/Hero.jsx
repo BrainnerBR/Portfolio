@@ -1,8 +1,6 @@
 // src/components/Hero.jsx
-import React from 'react';
 import '../styles/Hero.scss';
 import Reveal from './anim/Reveal';
-import { Typewriter } from 'react-simple-typewriter';
 
 
 const Hero = () => {
@@ -21,7 +19,7 @@ const Hero = () => {
         <p className="hero__description">
           ¡Hello World! I'm <span>Brainer</span>, Frontend Developer Junior committed to continuous improvement and constant learning. I'm passionate about building clean, efficient, and modern interfaces. I'm looking for an opportunity to grow within a team where knowledge is shared and innovation is encouraged.
         </p>
-        <button className="hero__button">HIRE ME</button>
+        <button className="hero__button">SEE CV</button>
       </div>
 
       {/* Menú lateral derecho */}
