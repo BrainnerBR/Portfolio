@@ -6,6 +6,7 @@ import SkillsStack from './components/SkillsStack';
 import Contact from './components/Contact';
 import ProjectDetail from './components/ProjectDetail';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AboutMe from './components/AboutMe';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={
           <>
             <Hero />
+            <AboutMe/>
             <Projects />
             <SkillsStack />
             <Contact />

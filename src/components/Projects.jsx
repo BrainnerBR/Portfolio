@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import '../styles/Projects.scss';
 import vitality from '../assets/vitality.png'
 import concretocr from '../assets/concretocr.png'
@@ -6,8 +6,7 @@ import happyHour from '../assets/Happy-hour.png';
 import adobloq from '../assets/adobloq.png'
 import fotoEstudio from '../assets/fotoEstudio.png';
 import { useNavigate } from 'react-router-dom';
-
-
+import { motion, useInView } from 'framer-motion';
 
 const proyectos = [
   {
@@ -53,20 +52,30 @@ const Projects = () => {
       </div>
 
       <div className="proyectos-showcase__lista">
-        <h3>* Selected Projects</h3>
+        <h3>* My Selected <span style={{color: '#00ff99'}}>Projects</span></h3>
         <ul>
-          {proyectos.map((proyecto, index) => (
-            <li
-              key={proyecto.id}
-              onMouseEnter={() => setProyectoActivo(proyecto)}
-              onClick={() => navigate(`/proyecto/${proyecto.id}`)}
-              className={`hoverable ${proyectoActivo.id === proyecto.id ? 'activo' : ''}`}
-            >
-              <span className="numero">{String(index + 1).padStart(2, '0')}.</span>{' '}
-              <span className="nombre">{proyecto.nombre}</span>
-              <div className="stack">{proyecto.stack}</div>
-            </li>
-          ))}
+          {proyectos.map((proyecto, index) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
+
+  return (
+    <motion.li
+      ref={ref}
+      key={proyecto.id}
+      onMouseEnter={() => setProyectoActivo(proyecto)}
+      onClick={() => navigate(`/proyecto/${proyecto.id}`)}
+      className={`hoverable ${proyectoActivo.id === proyecto.id ? 'activo' : ''}`}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
+      <span className="numero">{String(index + 1).padStart(2, '0')}.</span>{' '}
+      <span className="nombre">{proyecto.nombre}</span>
+      <div className="stack">{proyecto.stack}</div>
+    </motion.li>
+  );
+})}
+
         </ul>
       </div>
     </section>

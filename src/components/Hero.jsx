@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/Hero.scss';
 import Lenis from 'lenis';
+import AnimatedText from './anim/AnimatedText';
 
 const Hero = () => {
   const [activeSection, setActiveSection] = useState('');
@@ -35,7 +36,7 @@ const Hero = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['sobremi', 'proyectos', 'contacto'];
+      const sections = ['sobremi', 'proyectos', 'skills', 'contacto'];
 
       let found = false;
 
@@ -70,13 +71,21 @@ const Hero = () => {
       {/* Contenido central */}
       <div className="hero__content">
         <h1 className="hero__title">
-          <span className="green">Brainer</span> <br />
+        <AnimatedText text="Brainer" className="green" /> 
+        <br/>
           <span className="white">Blanco</span>
         </h1>
         <p className="hero__description">
           ¡Hello World! I'm <span>Brainer</span>, Frontend Developer Junior committed to continuous improvement and constant learning. I'm passionate about building clean, efficient, and modern interfaces. I'm looking for an opportunity to grow within a team where knowledge is shared and innovation is encouraged.
         </p>
-        <button className="hero__button">SEE RESUME</button>
+          <a
+            href="/BrainerBlancoResume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero__button"
+          >
+            SEE RESUME
+          </a>
       </div>
 
       {/* Menú lateral derecho */}
@@ -86,6 +95,9 @@ const Hero = () => {
         </a>
         <a onClick={() => scrollToSection('proyectos')} className={activeSection === 'proyectos' ? 'active' : ''}>
           Projects
+        </a>
+        <a onClick={() => scrollToSection('skills')} className={activeSection === 'skills' ? 'active' : ''}>
+          Tech
         </a>
         <a onClick={() => scrollToSection('contacto')} className={activeSection === 'contacto' ? 'active' : ''}>
           Contact

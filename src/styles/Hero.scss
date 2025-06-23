@@ -71,13 +71,14 @@
     background-color: #00ff88;
     color: black;
     border: none;
+    text-decoration: none;
     padding: 0.75rem 1.5rem;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      background-color: #00dd77;
+      background-color: #078148;
     }
   }
 

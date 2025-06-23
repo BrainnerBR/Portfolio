@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/AboutMe.scss';
+import AnimatedText from './anim/AnimatedText';
 
 const AboutMe = () => {
   return (
@@ -7,27 +8,37 @@ const AboutMe = () => {
       {/* Frase grande */}
       <div className="about-me__intro">
         <h1>
-          I believe in a user centered design approach, ensuring that every project I work on is tailored to meet the specific needs of its users.
+            <AnimatedText
+                text='Just a junior frontend developer passionate about learning and building innovative web applications that make an impact.'
+                by='span'
+                />
         </h1>
       </div>
 
       {/* Título de sección */}
       <div className="about-me__heading">
-        <p>This is me.</p>
         <hr />
         <h2>
-          Hi, I'm <span>Brainer</span>.
+          Some things <span>About me</span>.
         </h2>
       </div>
 
       {/* Dos columnas de párrafos */}
       <div className="about-me__content">
-        <p>
-          Soy un desarrollador web apasionado por crear experiencias digitales únicas. Me encanta aprender nuevas tecnologías y enfrentar desafíos que me permitan crecer profesionalmente. Siempre estoy buscando mejorar mis habilidades y contribuir a proyectos interesantes.
-        </p>
-        <p>
-          En mi tiempo libre disfruto de la lectura, la música y explorar nuevas tendencias en el mundo del desarrollo. Creo firmemente en el poder de la colaboración y el trabajo en equipo para lograr resultados excepcionales.
-        </p>
+<p>
+  <AnimatedText
+    text="I'm a web developer passionate about creating unique digital experiences. I love learning new technologies and taking on challenges that help me grow professionally. I'm always looking to improve my skills and contribute to meaningful projects."
+    by="span"
+  />
+</p>
+
+<p>
+  <AnimatedText
+    text="In my free time, I enjoy reading, listening to music, and exploring new trends in the development world. I firmly believe in the power of collaboration and teamwork to achieve exceptional results."
+    by="span"
+  />
+</p>
+
       </div>
     </section>
   );

@@ -1,13 +1,8 @@
-import { color } from 'framer-motion';
 import '../styles/Skills.scss'
 import {
   SiJavascript,
-  SiTypescript,
   SiReact,
-  SiNextdotjs,
-  SiRedux,
   SiTailwindcss,
-  SiFramer,
   SiSass,
   SiBootstrap,
   SiFirebase,
@@ -20,6 +15,9 @@ import {
 } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
 import { TbBrandReactNative } from 'react-icons/tb';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+
 
 export const skillsData = {
   frontend: [
@@ -47,18 +45,31 @@ export const skillsData = {
 
 const SkillsStack = () => {
   return (
-    <section className="skills">
-      <h2 className="skills__title">* TECH I USE</h2>
+    <section className="skills" id='skills'>
+      <h2 className="skills__title">*<span style={{color: '#00ff99'}}>TECH</span> I USE</h2>
 {Object.entries(skillsData).map(([category, items]) => (
   <div className="skills__category" key={category}>
     <h3 className="skills__subtitle">{category.toUpperCase()}</h3>
     <div className="skills__icons">
-      {items.map(({ name, icon: Icon, color }) => (
-        <div className="skills__item" key={name}>
-          <Icon style={{ color }} />
-          <span>{name}</span>
-        </div>
-      ))}
+      {items.map(({ name, icon: Icon, color }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
+
+  return (
+    <motion.div
+      ref={ref}
+      className="skills__item"
+      key={name}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+    >
+      <Icon style={{ color }} />
+      <span>{name}</span>
+    </motion.div>
+  );
+})}
+
     </div>
   </div>
 ))}

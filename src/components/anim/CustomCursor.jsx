@@ -17,7 +17,7 @@ function CustomCursor() {
       gsap.to(cursor, {
         x: e.clientX,
         y: e.clientY,
-        duration: 0.2,
+        duration: 0.3,
         ease: 'power3.out',
       });
     };

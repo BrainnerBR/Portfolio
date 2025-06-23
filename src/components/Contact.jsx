@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter, FaInstagram } from 'react-
 const Contact = () => {
   return (
     <section className="contact" id="contacto">
-      <h2 className="contact__title">* GET IN TOUCH</h2>
+      <h2 className="contact__title">Want to <span style={{color: '#00ff99'}}>Contact</span> me ?</h2>
 
       <div className="contact__content">
         {/* Formulario */}
