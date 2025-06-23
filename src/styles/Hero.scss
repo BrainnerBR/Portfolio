@@ -5,22 +5,37 @@
   color: white;
   padding: 2rem;
 
-&__email {
-  position: fixed;
-  top: 60%;
-  left: 0;
-  transform: rotate(-90deg) translateY(100%);
-  transform-origin: left;
-  font-size: 1.7rem;
-  color: #fff;
-  letter-spacing: 2px;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  &__email {
+    position: fixed;
+    top: 60%;
+    left: 0;
+    transform: rotate(-90deg) translateY(100%);
+    transform-origin: left;
+    font-size: 1.7rem;
+    color: #fff;
+    letter-spacing: 2px;
+    cursor: pointer;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: all 0.5s ease-in-out;
+  &:hover{
+    color: #00ff88;
+  }
 }
 
 
+.hero__menu {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1000;
+}
 
   &__content {
     max-width: 700px;
@@ -77,10 +92,15 @@
     text-align: right;
 
     a {
-      color: #999;
+      color: #99999962;
       font-size: 3rem;
       text-decoration: none;
+      cursor: pointer;
       transition: all .3s ease-in-out;
+      
+    &.active {
+      color: #00ff99;
+    }
 
       &:hover {
         color: #00ff88;

@@ -2,17 +2,29 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { proyectos } from '../data/proyectos';
 import '../styles/ProjectDetail.scss';
 import { FiArrowLeft, FiExternalLink, FiGithub } from 'react-icons/fi';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const proyecto = proyectos.find(p => p.id === Number(id));
 
+  const [index, setIndex] = useState(0);
+
+  // Scroll arriba al cargar
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  const proyecto = proyectos.find(p => p.id === Number(id));
+  // Rotación automática de imágenes
+  useEffect(() => {
+    if (!proyecto?.imagenes?.length) return;
+    const interval = setInterval(() => {
+      setIndex(prev => (prev + 1) % proyecto.imagenes.length);
+    }, 4000); // cada 4 segundos
+    return () => clearInterval(interval);
+  }, [proyecto]);
 
   if (!proyecto) {
     return (
@@ -53,10 +65,24 @@ const ProjectDetail = () => {
           </div>
         </div>
 
-        <div className="project-detail__gallery">
-          {proyecto.imagenes?.map((img, i) => (
-            <img key={i} src={img} alt={`screenshot ${i + 1}`} className="project-detail__image" />
-          ))}
+        <div className="project-detail__gallery--single">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            className="project-detail__fade-wrapper"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <img
+              src={proyecto.imagenes[index]}
+              alt={`screenshot ${index + 1}`}
+              className="project-detail__image"
+            />
+          </motion.div>
+        </AnimatePresence>
+
         </div>
       </div>
     </section>

@@ -23,7 +23,7 @@ import { TbBrandReactNative } from 'react-icons/tb';
 
 export const skillsData = {
   frontend: [
-    { name: 'HTML', icon: SiHtml5, color: '#f7921e' },
+    { name: 'HTML', icon: SiHtml5, color: '#df5312' },
     { name: 'CSS', icon: SiCss3, color: '#1e51f7' },
     { name: 'JavaScript', icon: SiJavascript, color: '#f7df1e' },
     { name: 'Java', icon: FaJava, color: '#f71e1e' },

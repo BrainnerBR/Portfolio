@@ -7,7 +7,9 @@ import Contact from './components/Contact';
 import ProjectDetail from './components/ProjectDetail';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+
 function App() {
+
   return (
     <Router>
       <ScrollBar />

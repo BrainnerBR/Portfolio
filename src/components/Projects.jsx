@@ -4,6 +4,7 @@ import vitality from '../assets/vitality.png'
 import concretocr from '../assets/concretocr.png'
 import happyHour from '../assets/Happy-hour.png';
 import adobloq from '../assets/adobloq.png'
+import fotoEstudio from '../assets/fotoEstudio.png';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -33,6 +34,12 @@ const proyectos = [
     stack: 'ReactJS | Javascript | Tailwindcss | Firebase',
     imagen: adobloq,
   },
+  {
+    id: 5,
+    nombre: 'JBgraphics',
+    stack: 'html | css | Javascript | Firebase',
+    imagen: fotoEstudio,
+  },
 ];
 
 const Projects = () => {
@@ -40,7 +47,7 @@ const Projects = () => {
   const [proyectoActivo, setProyectoActivo] = useState(proyectos[0]);
 
   return (
-    <section className="proyectos-showcase">
+    <section className="proyectos-showcase" id="proyectos">
       <div className="proyectos-showcase__imagen">
         <img key={proyectoActivo.id} src={proyectoActivo.imagen} alt={proyectoActivo.nombre} />
       </div>
