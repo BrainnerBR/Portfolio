@@ -49,6 +49,11 @@ const ProjectDetail = () => {
             <p><strong>Year:</strong> {proyecto.year}</p>
             <p><strong>Tech & Technique:</strong> {proyecto.tech}</p>
             <p><strong>Description:</strong> {proyecto.description}</p>
+            <ul>
+              {proyecto.features.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
           </div>
 
           <div className="project-detail__buttons">

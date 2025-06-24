@@ -7,12 +7,14 @@ import Contact from './components/Contact';
 import ProjectDetail from './components/ProjectDetail';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AboutMe from './components/AboutMe';
+import { Toaster } from 'sonner';
 
 
 function App() {
 
   return (
     <Router>
+      <Toaster position="top-center" richColors />
       <ScrollBar />
       <CustomCursor />
 
