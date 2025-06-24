@@ -17,7 +17,7 @@ import adobloq3 from '../assets/adobloq3.png';
 
 import fotoEstudio from '../assets/fotoEstudio.png';
 import fotoEstudio2 from '../assets/fotoEstudio2.png';
-import fotoEstudio3 from '../assets/fotoEstudio3.png';  
+import fotoEstudio3 from '../assets/fotoestudio3.png';  
 import fotoEstudio4 from '../assets/fotoEstudio4.png';
 
 export const proyectos = [
