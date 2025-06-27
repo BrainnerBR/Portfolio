@@ -14,7 +14,7 @@ import {
   SiPhp,
 } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
-import { TbBrandReactNative } from 'react-icons/tb';
+import { TbBrandReactNative, TbBrandTypescript } from 'react-icons/tb';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -39,7 +39,7 @@ export const skillsData = {
   ],
   learnig: [
     { name: 'PHP', icon: SiPhp, color: '#816a9b' },
-    {name: 'React Native', icon: TbBrandReactNative, color: '#61dafb'},
+    {name: 'Typescript', icon: TbBrandTypescript, color: '#4a89c4'},
   ]
 };
 
