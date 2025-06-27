@@ -33,10 +33,10 @@ const Contact = () => {
 
       <div className="contact__content">
         <form ref={form} className="contact__form" onSubmit={sendEmail}>
-          <input type="text" name="name" placeholder="Tu nombre" required />
-          <input type="email" name="reply_to" placeholder="Tu correo" required />
-          <textarea name="message" rows="5" placeholder="Tu mensaje..." required></textarea>
-          <button type="submit">Enviar mensaje</button>
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="reply_to" placeholder="Your Email" required />
+          <textarea name="message" rows="5" placeholder="Your message..." required></textarea>
+          <button type="submit">Send</button>
         </form>
 
         <div className="contact__socials">
