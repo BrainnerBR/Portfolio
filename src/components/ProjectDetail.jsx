@@ -50,7 +50,7 @@ const ProjectDetail = () => {
             <p><strong>Tech & Technique:</strong> {proyecto.tech}</p>
             <p><strong>Description:</strong> {proyecto.description}</p>
             <ul>
-              {proyecto.features.map((item, index) => (
+              {proyecto.eatures.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
