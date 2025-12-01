@@ -1,27 +1,27 @@
-import { useParams, useNavigate } from 'react-router-dom';
-import { proyectos } from '../data/proyectos';
-import '../styles/ProjectDetail.scss';
-import { FiArrowLeft, FiExternalLink, FiGithub } from 'react-icons/fi';
-import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useParams, useNavigate } from "react-router-dom";
+import { proyectos } from "../data/proyectos";
+import "../styles/ProjectDetail.scss";
+import { FiArrowLeft, FiExternalLink, FiGithub } from "react-icons/fi";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const proyecto = proyectos.find(p => p.id === Number(id));
+  const proyecto = proyectos.find((p) => p.id === Number(id));
 
   const [index, setIndex] = useState(0);
 
   // Scroll arriba al cargar
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   // Rotación automática de imágenes
   useEffect(() => {
     if (!proyecto?.imagenes?.length) return;
     const interval = setInterval(() => {
-      setIndex(prev => (prev + 1) % proyecto.imagenes.length);
+      setIndex((prev) => (prev + 1) % proyecto.imagenes.length);
     }, 4000); // cada 4 segundos
     return () => clearInterval(interval);
   }, [proyecto]);
@@ -46,11 +46,17 @@ const ProjectDetail = () => {
           <h1 className="project-detail__title">{proyecto.nombre}</h1>
 
           <div className="project-detail__meta">
-            <p><strong>Year:</strong> {proyecto.year}</p>
-            <p><strong>Tech & Technique:</strong> {proyecto.tech}</p>
-            <p><strong>Description:</strong> {proyecto.description}</p>
+            <p>
+              <strong>Year:</strong> {proyecto.year}
+            </p>
+            <p>
+              <strong>Tech & Technique:</strong> {proyecto.tech}
+            </p>
+            <p>
+              <strong>Description:</strong> {proyecto.description}
+            </p>
             <ul>
-              {proyecto.eatures.map((item, index) => (
+              {proyecto.features.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
@@ -58,12 +64,22 @@ const ProjectDetail = () => {
 
           <div className="project-detail__buttons">
             {proyecto.live && (
-              <a href={proyecto.live} target="_blank" rel="noopener noreferrer" className="project-detail__btn">
+              <a
+                href={proyecto.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-detail__btn"
+              >
                 <FiExternalLink /> Ver Live
               </a>
             )}
             {proyecto.code && (
-              <a href={proyecto.code} target="_blank" rel="noopener noreferrer" className="project-detail__btn">
+              <a
+                href={proyecto.code}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-detail__btn"
+              >
                 <FiGithub /> Ver Código
               </a>
             )}
@@ -71,23 +87,22 @@ const ProjectDetail = () => {
         </div>
 
         <div className="project-detail__gallery--single">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={index}
-            className="project-detail__fade-wrapper"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <img
-              src={proyecto.imagenes[index]}
-              alt={`screenshot ${index + 1}`}
-              className="project-detail__image"
-            />
-          </motion.div>
-        </AnimatePresence>
-
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              className="project-detail__fade-wrapper"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <img
+                src={proyecto.imagenes[index]}
+                alt={`screenshot ${index + 1}`}
+                className="project-detail__image"
+              />
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>
